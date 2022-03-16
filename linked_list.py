@@ -5,6 +5,8 @@ class Node():
         self.value = value
         self.next_node = next_node
 
+    def get_value(self):
+        return self.value
 
 
 def main():
