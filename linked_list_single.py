@@ -59,9 +59,27 @@ def test_node():
 
 
 def test_linkedlist():
-    pass
+    # testing values
+    num_errors = 0
+
+    # testing
+    node1 = Node(12)
+    node2 = Node(123, node1)
+    node3 = Node(1234, node2)
+    link = LinkedList(node3)
+    linkTest1 = link.num_nodes
+    if linkTest1 != 3:
+        num_errors += 1
+        print(f"Test 1 fail. Actual value: {linkTest1}")
+    
+    print(f'There are {num_errors} errors in the Linked List class.')
+    if num_errors > 0:
+        print("You've got debugging to do.")
+    else:
+        print("Your code is bug free.")
 
 if __name__ == '__main__':
-    print("Testing Node implementation:")
+    print("\nTesting Node implementation:")
     test_node()
-    # test_linkedlist()
+    print("\nTesting Linked List implementation:")
+    test_linkedlist()
