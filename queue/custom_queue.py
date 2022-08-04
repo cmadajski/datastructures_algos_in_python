@@ -1,5 +1,3 @@
-from multipledispatch import dispatch
-
 class CustomQueue:
     def __init__(self, max_length: int = 5):
         self.max_length = max_length
@@ -16,19 +14,11 @@ class CustomQueue:
         return f"CustomQueue of length {self.length} with data {self.data} has been deleted."
 
     @dispatch(int)
-    def push(self, num: int) -> None:
+    def push(self, value) -> None:
         if len(self.data) >= self.max_length:
             print("OVERFLOW ERROR: Queue has reached maximum capacity.")
         else:
-            self.data.append(num)
-            self.length += 1
-
-    @dispatch(str)
-    def push(self, string: str) -> None:
-        if len(self.data) >= self.max_length:
-            print("OVERFLOW ERROR: Queue has reached maximum capacity.")
-        else:
-            self.data.append(string)
+            self.data.append(value)
             self.length += 1
 
     def pop(self, index: int = 0):
